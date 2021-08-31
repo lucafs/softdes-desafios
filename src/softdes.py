@@ -156,8 +156,7 @@ def main():
             answer = first_page.read()
 
         args = {"ndes": id_quiz, "code": answer, 
-        "args": eval(quiz[4]), "resp": eval(quiz[5]), 
-        "diag": eval(quiz[6]) }
+        "args": eval(quiz[4]), "resp": eval(quiz[5]), "diag": eval(quiz[6]) }
         feedback = lambda_handler(args)
 
 
