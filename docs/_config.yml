@@ -1,1 +1,10 @@
+site_name: Documentação projeto
+repo_url: https://github.com/lucafs/softdes-desafios
+repo_name: softdes-desafios
+
 theme: jekyll-theme-midnight
+
+nav:
+  - 'Home': 'index.md'
+  - 'Docs':
+    - 'index2.md'

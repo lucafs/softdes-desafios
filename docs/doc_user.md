@@ -1,0 +1,13 @@
+#Documentação do Usuário
+- Uma página inicial descrevendo o projeto e explicando seu uso esperado. Inclua links e screenshots do software rodando.
+- Uma página de guia de usuário para alunos. Este guia deverá mostrar passo a passo as seguintes tarefa
+  - entrar no servidor de desafios
+  - Para enviar uma solução correta do desafio, é necessário que dentro do arquivo enviado haja uma função com o nome do desafio e que esta função retorne o que é esperado para o desafio (definido pelo professor).
+  - Para enviar uma solução errada, o aluno pode:
+    - Mandar um arquivo sem função
+    - Um arquivo com o nome da função diferente do nome do desafio
+    - Uma função que retorne algo diferente do que o esperado
+- Uma página de guia de usuário para professores. Ela deverá descrever:
+  - ![Image](https://imgur.com/m1huFhZ) 
+  - como adicionar usuários (usando os arquivos users.csv e add_user.py)
+  - como adicionar novos desafios (linha de comando mesmo)
