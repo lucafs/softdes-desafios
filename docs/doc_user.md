@@ -2,7 +2,7 @@
 
 Este projeto se resume em uma ferramenta para facilitar entregas de desafios da matéria Design de Software. Nele o professor pode adicionar desafios e os alunos podem subir soluções para os respectivos desafios.
 
-O projeto verificar se o desafio esta de acordo com o que o professor definiu como requisito e da um feedback e um resultado para o aluno dizendo se o desafio esta correto ou não 9como pode ser visto na imagem abaixo)
+O projeto verificar se o desafio esta de acordo com o que o professor definiu como requisito e da um feedback e um resultado para o aluno dizendo se o desafio esta correto ou não. Um exemplo pode ser visualizado na imagem abaixo)
 
 
 
