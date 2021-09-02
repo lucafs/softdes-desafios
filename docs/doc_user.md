@@ -10,7 +10,9 @@ O projeto verificar se o desafio esta de acordo com o que o professor definiu co
 
 <div align="center">
   <img src="https://i.imgur.com/D4JPBuY.png"><br>
+  
 </div>
+
 
 
 
@@ -19,6 +21,6 @@ O projeto verificar se o desafio esta de acordo com o que o professor definiu co
 Nos links a seguir é possível encontrar documentações direcionadas para cada tipo de usuário, descrevendo e ensinando as ações possiveis de serem realizadas no projeto:
 
 
-- [Guia para alunos](https://lucafs.github.io/softdes-desafios/doc_user_aluno)
+- ### [Guia para alunos](https://lucafs.github.io/softdes-desafios/doc_user_aluno)
 
-- [Guia para professores](https://lucafs.github.io/softdes-desafios/doc_user_professor)
+- ### [Guia para professores](https://lucafs.github.io/softdes-desafios/doc_user_professor)
