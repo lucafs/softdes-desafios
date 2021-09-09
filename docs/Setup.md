@@ -3,12 +3,12 @@
 ## Requerimentos  
 
    Para poder rodar o projeto, é necessário ter as seguintes dependências instaladas:  
-       - sqlite3  
-       - flask  
-       - flask_httpauth  
-       - json  
-       - hashlib  
-       - datetime  
+   - sqlite3  
+   - flask  
+   - flask_httpauth  
+   - json  
+   - hashlib  
+   - datetime  
 
 ## Inicialização do Banco de Dados
 
