@@ -14,6 +14,8 @@ Este projeto se resume em uma ferramenta para facilitar entregas de desafios da 
 -----------------
 
 ## Documentações
+[**Guia de Instalação**](https://lucafs.github.io/softdes-desafios/Setup)
+
 [**Documentação de Usuário**](https://lucafs.github.io/softdes-desafios/doc_user)
 
 [**Documentação de Desenvolvedor**](https://lucafs.github.io/softdes-desafios/doc_dev)
