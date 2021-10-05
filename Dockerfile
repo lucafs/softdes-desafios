@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu:18.04
-WORKDIR /cotainer
+WORKDIR /app
 ENV FLASK_APP=softdes.py
 ENV FLASK_RUN_HOST=0.0.0.0
 COPY requirements.txt requirements.txt
