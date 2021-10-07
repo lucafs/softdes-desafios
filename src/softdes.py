@@ -32,7 +32,7 @@ def lambda_handler(event):
 
 
         test = []
-        for index in enumerate(args):
+        for index, arg in enumerate(args):
             if not 'desafio{0}'.format(ndes) in locals():
                 return "Nome da função inválido. Usar 'def desafio{0}(...)'".format(ndes)
 
@@ -53,11 +53,9 @@ def get_quizes(user):
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     if user == 'admin' or user == 'fabioja':
-        cursor.execute("SELECT id, numb from QUIZ".format(datetime.now()
-        .strftime("%Y-%m-%d %H:%M:%S")))
+        cursor.execute("SELECT id, numb from QUIZ".format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
     else:
-        cursor.execute("SELECT id, numb from QUIZ where release < '{0}'".format(datetime.now()
-        .strftime("%Y-%m-%d %H:%M:%S")))
+        cursor.execute("SELECT id, numb from QUIZ where release < '{0}'".format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
     info = [reg for reg in cursor.fetchall()]
     conn.close()
     return info
@@ -66,9 +64,7 @@ def get_user_quiz(userid, quizid):
     '''pega quizes user'''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
-    cursor.execute(
-    "SELECT sent,answer,result from USERQUIZ where userid = '{0}' and quizid = {1} order by sent desc"
-    .format(userid, quizid))
+    cursor.execute("SELECT sent,answer,result from USERQUIZ where userid = '{0}' and quizid = {1} order by sent desc".format(userid, quizid))
     info = [reg for reg in cursor.fetchall()]
     conn.close()
     return info
@@ -77,9 +73,7 @@ def set_user_quiz(userid, quizid, sent, answer, result):
     '''coloca quiz para usuário'''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
-    cursor.execute
-    ("insert into USERQUIZ(userid,quizid,sent,answer,result) values (?,?,?,?,?);",
-    (userid, quizid, sent, answer, result))
+    cursor.execute("insert into USERQUIZ(userid,quizid,sent,answer,result) values (?,?,?,?,?);",(userid, quizid, sent, answer, result))
     conn.commit()
     conn.close()
 
@@ -89,13 +83,9 @@ def get_quiz(id_quiz, user):
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     if user == 'admin' or user == 'fabioja':
-        cursor.execute
-        ("SELECT id, release, expire, problem, tests, results, diagnosis, numb from QUIZ where id = {0}"
-        .format(id_quiz))
+        cursor.execute("SELECT id, release, expire, problem, tests, results, diagnosis, numb from QUIZ where id = {0}".format(id_quiz))
     else:
-        cursor.execute(
-        "SELECT id, release, expire, problem, tests, results, diagnosis, numb from QUIZ where id = {0} and release < '{1}'"
-        .format(id_quiz, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        cursor.execute("SELECT id, release, expire, problem, tests, results, diagnosis, numb from QUIZ where id = {0} and release < '{1}'".format(id_quiz, datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
     info = [reg for reg in cursor.fetchall()]
     conn.close()
     return info
@@ -142,8 +132,7 @@ def main():
         if len(quiz) == 0:
             msg = "Boa tentativa, mas não vai dar certo!"
             page_counter = 2
-            return render_template('index.html',
-            username=auth.username(), challenges=challenges, page_counter=page_counter, msg=msg)
+            return render_template('index.html', username=auth.username(), challenges=challenges, page_counter=page_counter, msg=msg)
 
         quiz = quiz[0]
         if sent > quiz[2]:
@@ -155,8 +144,7 @@ def main():
         with open(filename,'r') as first_page:
             answer = first_page.read()
 
-        args = {"ndes": id_quiz, "code": answer, 
-        "args": eval(quiz[4]), "resp": eval(quiz[5]), "diag": eval(quiz[6]) }
+        args = {"ndes": id_quiz, "code": answer, "args": eval(quiz[4]), "resp": eval(quiz[5]), "diag": eval(quiz[6]) }
         feedback = lambda_handler(args)
 
 
@@ -177,22 +165,17 @@ def main():
     if len(challenges) == 0:
         msg = "Ainda não há desafios! Volte mais tarde."
         page_counter = 2
-        return render_template('index.html', username=auth.username(),
-        challenges=challenges, page_counter=page_counter, msg=msg)
+        return render_template('index.html', username=auth.username(),challenges=challenges, page_counter=page_counter, msg=msg)
 
     quiz = get_quiz(id_quiz, auth.username())
 
     if len(quiz) == 0:
         msg = "Oops... Desafio invalido!"
         page_counter = 2
-        return render_template('index.html', username=auth.username()
-        ,challenges=challenges, page_counter=page_counter, msg=msg)
+        return render_template('index.html', username=auth.username(),challenges=challenges, page_counter=page_counter, msg=msg)
 
     answers = get_user_quiz(auth.username(), id_quiz)
-    return render_template('index.html', username=auth.username(),
-    challenges=challenges, quiz=quiz[0], e=(sent > quiz[0][2]),
-    answers=answers, page_counter=page_counter, msg=msg,
-    expi = converte_data(quiz[0][2]))
+    return render_template('index.html', username=auth.username(), challenges=challenges, quiz=quiz[0], e=(sent > quiz[0][2]), answers=answers, page_counter=page_counter, msg=msg, expi = converte_data(quiz[0][2]))
 
 @app.route('/pass', methods=['GET', 'POST'])
 @auth.login_required
@@ -220,16 +203,13 @@ def change():
         msg = ''
         page_counter = 3
 
-    return render_template('index.html', username=auth.username(),
-    challenges=get_quizes(auth.username()),
-    page_counter=page_counter, msg=msg)
+    return render_template('index.html', username=auth.username(), challenges=get_quizes(auth.username()), page_counter=page_counter, msg=msg)
 
 
 @app.route('/logout')
 def logout():
     '''logout '''
-    return render_template('index.html',page_counter=2,
-    msg="Logout com sucesso"), 401
+    return render_template('index.html',page_counter=2, msg="Logout com sucesso"), 401
 
 @auth.get_password
 def get_password(username):
