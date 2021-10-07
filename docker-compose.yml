@@ -3,11 +3,11 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: softdes_image
+    image: softdes_img
     ports:
       - 8080:8080
     volumes:
-      - volume1:/app/
+      - softdes_volume:/app/
+
 volumes:
-  volume1:
-    name: softdes_volume
+  softdes_volume:
