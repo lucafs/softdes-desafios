@@ -19,3 +19,14 @@ Este projeto se resume em uma ferramenta para facilitar entregas de desafios da 
 [**Documentação de Usuário**](https://lucafs.github.io/softdes-desafios/doc_user)
 
 [**Documentação de Desenvolvedor**](https://lucafs.github.io/softdes-desafios/doc_dev)
+
+
+## Testes
+Para rodar os testes, primeiro é necessarrio instalar o `pytest`, o `selenium` e ter o [driver](https://github.com/mozilla/geckodriver/releases) do firefox instalado.
+Em seguida, entre na pasta `test` do repositório e rode os seguintes comandos:
+```
+$ pytest test_unitario.py
+```
+```
+$ pytest test_usuario.py
+```
